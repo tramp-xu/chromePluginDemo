@@ -1,0 +1,23 @@
+{
+  "name": "buy",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "buy something",
+  "browser_action": {
+      "default_icon": "favicon.png", 
+      "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+      {
+          "matches": ["https://*/*", "http://*/*", "https://cart.taobao.com/*", "https://cart.tmall.com/*", "https://buy.taobao.com/*", "https://buy.tmall.com/*", "https://baidu.com/*"],
+          "css": ["./element-ui.css"],
+          "js": [ "./vue.js", "./element-ui.js", "./window.js", "./index.js"]
+      }
+  ],
+  "permissions": [
+      "tabs",
+      "notifications"
+    ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}

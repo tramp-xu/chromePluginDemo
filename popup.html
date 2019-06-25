@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>快捷购买</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+          * {padding:0;margin: 0;}
+          html .body {overflow: hidden;}
+          .info {margin-top: 10px;}
+          .wrapper {padding: 20px;}
+        </style>
+        <link rel="stylesheet" href="./element-ui.css">
+    </head>
+    <body class="body" style="height:600px;width:460px;overflow: hidden;">
+      <div id="app" class="wrapper">
+        <h2>快捷购买</h2>
+        <div class="info">
+          <div v-if="isTaobaoCart">
+            <el-form>
+              <el-form-item label="设定下单时间">
+                <el-date-picker
+                  value-format="timestamp"
+                  v-model="date1"
+                  type="datetime"
+                  placeholder="选择日期时间">
+                </el-date-picker>
+              </el-form-item>
+              <el-form-item label="搜索框内容">
+                <input type="text" v-model="keyword">
+              </el-form-item>
+            </el-form>
+            
+            <el-button type="primary" size='small' @click="start">启动</el-button>
+          </div>
+          <div v-else>
+            <a href="http://baidu.com" target="_blank">请先前往淘宝购物车</a>
+          </div>
+        </div>
+      </div>
+      <script src="./vue.js"></script>
+      <script src="./element-ui.js"></script>
+      <script src="./window.js"></script>
+      <script src="./index.js"></script>
+    </body>
+</html>
